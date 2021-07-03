@@ -1,3 +1,13 @@
+# Introduction To This Website
+This website has been developed in July 2021 in order to help assist first year students with their University Experience while at the University Of Sheffield. It's been created using a react frame-work with [Material-UI](https://material-ui.com/) as a base CSS framework. The full site can be found at the [following link](https://sheffieldcomputerscience.github.io/). 
+
+# Structure
+The main application is ran via App.js, with components being used to help maintainability. This has been split into two folders in the src directory.
+
+ "content" refers to content sections, and is further sub-divided by the sections found on the website. These files are meant purely for content (e.g, updating text). 
+ 
+ "structure" refers to structured sections, and is meant for layouts, and additional more detailed UI changes. This helps to ensure that content and structure remains self-evident.
+
 # Getting Started with Developing Sheffield Welcome Site 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
