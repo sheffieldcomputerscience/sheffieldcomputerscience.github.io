@@ -1,4 +1,5 @@
 import React from 'react';
+import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import clsx from 'clsx';
@@ -103,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
   },
   list_root: {
     width:'100%',
-    maxWiddth: 360,
+    maxWidth: 360,
   },
   nested: {
     paddingLeft:  theme.spacing(4)
@@ -140,8 +141,8 @@ function App() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" style={{ textAlign:"center" }}>
-              Sheffield Computer Science Introduction Website
+            <Typography variant="h6" style={{ textAlign:"center", fontFamily: "Abel" }}>
+              Sheffield Computer Science Introduction Website 
             </Typography>
             <img src="TUOS_PRIMARY_LOGO_REVERSED.png" alt="University Of Sheffield Logo" className={classes.logo}></img>
           </Toolbar>

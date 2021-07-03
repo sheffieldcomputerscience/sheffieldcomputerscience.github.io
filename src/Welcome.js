@@ -57,24 +57,6 @@ const welcome_societies = [
     },
 
   ];
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      height: 140,
-      width: 100,
-    },
-    control: {
-      padding: theme.spacing(2),
-    },
-    logo: {
-        maxWidth: 160,
-        marginLeft: "auto",
-        marginTop: 5,
-        marginBottom: 5
-      },
-  }));
 
 class Welcome extends Component {
 
@@ -95,7 +77,7 @@ class Welcome extends Component {
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={2}>
                 {welcome_people.map((value) => (
-                    <Grid key={value} item>
+                    <Grid key={value.id} item>
                     <Paper style={{textAlign:"center", paddingLeft:"2%", paddingRight:"2%", paddingBottom:"2%", paddingTop:"2%"}}>
                         <Typography style={{textAlign:"center"}} variant="h5" paragraph>
                             {value.nameHeader}
@@ -103,7 +85,7 @@ class Welcome extends Component {
                         <Typography style={{textAlign:"center"}} variant="h6" paragraph>
                             {value.role}
                         </Typography>
-                      <img src={value.fileName} alt="University Of Sheffield Logo" style={{borderRadius:"100%"}} className={classes.logo}></img>
+                      <img src={value.fileName} alt="University Of Sheffield Logo" style={{borderRadius:"100%"}} ></img>
                       <Typography style={{textAlign:"center"}} paragraph>
                             {value.welcomeMessage}
                         </Typography>
@@ -141,7 +123,7 @@ class Welcome extends Component {
                         <Typography style={{textAlign:"center"}} variant="h6" paragraph>
                             {value.role}
                         </Typography>
-                      <img src={value.fileName} alt="University Of Sheffield Logo" width="100" height="100" style={{borderRadius:"100%"}} className={classes.logo}></img>
+                      <img src={value.fileName} alt="University Of Sheffield Logo" width="100" height="100" style={{borderRadius:"100%"}} ></img>
                       <br/>
                       <Link href={value.link}> Link to website</Link>
                       <br/>
@@ -162,4 +144,4 @@ class Welcome extends Component {
 Welcome.propTypes = {
     classes: PropTypes.object.isRequired,
 }
-export default withStyles(useStyles)(Welcome);
+export default Welcome;
