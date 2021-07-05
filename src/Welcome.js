@@ -22,9 +22,8 @@ const welcome_people = [
           id: "guy",
           nameHeader: "Guy Brown",
           fileName: "Guy-Brown.jpg",
-          role: "Lecturer Role",
-          welcomeMessage: "Lorem Ipsum Welcome Message"
-      },
+          role: "Head of Department",
+          welcomeMessage: "Welcome to the Department of Computer Science at the University of Sheffield! My name is Professor Guy Brown and I am the Head of Department. I’m delighted that you have chosen to join us at Sheffield and I look forward to meeting you soon.\nThe coming year will be an unusual one for all of us, as we teach and learn within the constraints created by the coronavirus pandemic. However, I am very confident that we will continue to deliver an excellent student experience, and that our reputation as a friendly and welcoming Department will continue to shine through.\nOver the next few weeks some of our teaching and support staff will be emailing you to introduce themselves and to suggest some helpful resources that will help prepare you for your arrival in Sheffield and for the start of your course.\nYou will also receive emails over the coming weeks from the University that will explain wider aspects of University life. Emails from the Department will focus on preparing you for life as a Computer Science student specifically.\nBest regards,\nProfessor Guy Brown\nHead of Department\n"      },
       {
           id: "jon",
           nameHeader: "Jon Barker",
