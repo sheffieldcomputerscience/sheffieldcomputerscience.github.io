@@ -162,7 +162,6 @@ function App() {
             </IconButton>
           </div>
           <Divider />
-          {/* <NestedList /> */}
           <ListOfSections/>
         </Drawer>
         <main

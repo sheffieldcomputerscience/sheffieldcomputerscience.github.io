@@ -12,21 +12,21 @@ import { Link } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
 const welcome_people = [
     {
-        id: "1",
+        id: "emma",
         nameHeader: "Emma Norling",
         fileName: "EmmaNorling.jpg",
         role: "Lecturer Role",
         welcomeMessage: "Lorem Ipsum Welcome Message"
       },
       {
-          id: "2",
+          id: "guy",
           nameHeader: "Guy Brown",
           fileName: "Guy-Brown.jpg",
           role: "Lecturer Role",
           welcomeMessage: "Lorem Ipsum Welcome Message"
       },
       {
-          id: "3",
+          id: "jon",
           nameHeader: "Jon Barker",
           fileName: "Jon-Barker1.jpg",
           role: "Lecturer Role",
@@ -35,21 +35,21 @@ const welcome_people = [
 ]
 const welcome_societies = [
     {
-      id: "1",
+      id: "compsoc",
       nameHeader: "Computing Society",
       fileName: "compsoc.png",
       welcomeMessage: "Lorem Ipsum Welcome Message",
       link: "https://shefcompsoc.uk/"
     },
     {
-        id: "2",
+        id: "hacksheffield",
         nameHeader: "HackSheffield",
         fileName: "hacksheffield.jpg",
         welcomeMessage: "Lorem Ipsum Welcome Message",
         link: "https://hacksheffield.com/"
     },
     {
-        id: "3",
+        id: "wics",
         nameHeader: "Women In Computer Science",
         fileName: "womenincomputerscience.jpg",
         welcomeMessage: "Lorem Ipsum Welcome Message",
@@ -61,7 +61,6 @@ const welcome_societies = [
 class Welcome extends Component {
 
   render() {
-    const {classes} = this.props;
     return (
       <div style={{  }}>
         <Typography  style={{ paddingLeft: "20%", paddingRight: "20%", textAlign:"center" }} paragraph>
@@ -141,7 +140,4 @@ class Welcome extends Component {
   }
 }
 
-Welcome.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
 export default Welcome;
