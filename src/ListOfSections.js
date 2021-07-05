@@ -4,43 +4,64 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import {
   List,
   ListItem,
+  ListItemSecondaryAction,
   ListItemText,
   Divider,
   Collapse
 } from "@material-ui/core";
-
-const myData = [
+import { IconButton } from "@material-ui/core";
+import DeleteIcon from '@material-ui/icons/Delete';
+import ReactDOM from "react-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
+const linkData = [
+  {
+    id: "welcome_page",
+    nameHeader: "Welcome Page",
+    subMenu: [{ id: "staff_page", name: "Staff Welcome" }, { id: "society_page", name: "Societies Welcome" }],
+    link: "/welcome",
+  },
   {
     id: "1",
     nameHeader: "General Computing Skills",
-    subMenu: [{ id: "11", name: "Github Tutorial (Making Back-Ups)" }, { id: "12", name: "Terminal Tutorial" }, 
-    { id: "13", name: "Typing Skills Improvements" }, { id: "14", name: "What Computer Should I Buy?" }]
+    subMenu: [{ id: "11", name: "Version Control" }, { id: "12", name: "Terminal Skills" }, 
+    { id: "13", name: "Typing Skills" }],
+    link: "/computingskills",
   },
   {
     id: "2",
     nameHeader: "Academic Skills",
-    subMenu: [{ id: "21", name: "What To Expect In Your Course" }, { id: "22", name: "Group Project Advice" }, { id: "23", name: "Studying and Revision" }
-            , { id: "24", name: "How not to fail an assignment" }, { id: "25", name: "Finding Past Papers" }, { id: "26", name: "Important Links and Information" }]
+    subMenu: [{ id: "21", name: "Group Projects" }, { id: "22", name: "Studying and Revision" }, { id: "23", name: "Help for Students" }],
+    link: '/skills',
   },
   {
     id: "3",
-    nameHeader: "Under Graduates",
-    subMenu: [{ id: "31", name: "Maths Overview" }, { id: "32", name: "First Year Modules Overview" }]
+    nameHeader: "Information for Undergraduates",
+    subMenu: [{ id: "31", name: "Overview of 1st Year" }, { id: "32", name: "Maths Background" }],
+    link: '/undergraduates'
   },
   {
     id: "4",
-    nameHeader: "Post Graduates",
-    subMenu: [{ id: "41", name: "Expected Programming Ability" }, { id: "42", name: "Expectations based on Programme" }, { id: "43", name: "Self Study" }]
+    nameHeader: "Information for Postgraduates",
+    subMenu: [{ id: "41", name: "Programming Overview" }, { id: "42", name: "Self Study" }],
+    link: '/postgraduates'
   },
   {
     id: "5",
     nameHeader: "General Information",
-    subMenu: [{ id: "51", name: "International Students" }, { id: "52", name: "Important Links and Information" }]
+    subMenu: [{ id: "51", name: "FAQ" }, { id: "52", name: "Important Links" }],
+    link: "/general"
   },
 ];
 
 class ListOfSections extends Component {
-  state = { settings: [{ id: "1", open: false }, { id: "2", open: false }, { id: "3", open: false }, { id: "4", open: false }, { id: "5", open: false }] };
+  state = { settings: [{ id: "welcome_page", open: true }, { id: "1", open: false }, { id: "2", open: false }, { id: "3", open: false }, { id: "4", open: false }, { id: "5", open: false }] };
 
   handleClick = id => {
     this.setState(state => ({
@@ -54,37 +75,35 @@ class ListOfSections extends Component {
   render() {
     const { settings } = this.state;
     return (
-      <div style={{  }}>
-        <List component="nav" style={{ paddingTop: "0px" }}>
-          {myData.map(each => (
-            <React.Fragment key={each.id}>
-              <ListItem button onClick={() => this.handleClick(each.id)}>
-                <ListItemText inset primary={each.nameHeader} />
-                <p>{each.id}</p>
-                {settings.find(item => item.id === each.id).open
-                  ? <ExpandLess />
-                  : <ExpandMore />}
-              </ListItem>
-              <Divider />
-              <Collapse
-                in={settings.find(item => item.id === each.id).open}
-                timeout="auto"
-                unmountOnExit
-              >
-                <List component="div" disablePadding>
-                  {each.subMenu.map(subData => (
-                    <ListItem button key={subData.id} component={NavLink} to='/dashboard' >
-                      <ListItemText inset primary={subData.name} />
-                      <p>{subData.id}</p>
-                    </ListItem>
-                    
-                  ))}
-                </List>
-              </Collapse>
-            </React.Fragment>
-          ))}
-        </List>
-      </div>
+        <div style={{  }}>
+          <List component="nav" style={{ paddingTop: "0px" }}>
+            {linkData.map(each => (
+              <React.Fragment key={each.id}>
+                <ListItem button onClick={() => this.handleClick(each.id)}>
+                  <ListItemText primary={each.nameHeader} />
+                  {settings.find(item => item.id === each.id).open
+                    ? <ExpandLess />
+                    : <ExpandMore />}
+                </ListItem>
+                <Divider />
+                <Collapse
+                  in={settings.find(item => item.id === each.id).open}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding>
+                    {each.subMenu.map(subData => (
+                      <ListItem button key={subData.id} component={NavLink} to='/dashboard' >
+                        <ListItemText primary={subData.name} />
+                      </ListItem>
+                      
+                    ))}
+                  </List>
+                </Collapse>
+              </React.Fragment>
+            ))}
+          </List>
+        </div>
     );
   }
 }

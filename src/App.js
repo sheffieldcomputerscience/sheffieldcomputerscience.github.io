@@ -32,151 +32,33 @@ import Accordion from '@material-ui/core/Accordion'
 import { AccordionSummary } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import ReactDOM from "react-dom";
+import { NavLink } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
 import ListOfSections from "./ListOfSections";
 import Welcome from "./Welcome";
 import Footer from './Footer';
-const drawerWidth = 240;
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexGrow: 1
-  },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    backgroundColor: "#272F40"
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  logo: {
-    maxWidth: 160,
-    marginLeft: "auto",
-    marginTop: 5,
-    marginBottom: 5
-  },
-  hide: {
-    display: 'none',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
-  list_root: {
-    width:'100%',
-    maxWidth: 360,
-  },
-  nested: {
-    paddingLeft:  theme.spacing(4)
-  },
-}));
+import MainApplication from './MainApplication'
+
 
 function App() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   return (
-    <div className={classes.root}>
-       <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {[classes.appBarShift]: open, })}
-        >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" style={{ textAlign:"center", fontFamily: "Abel" }}>
-              Sheffield Computer Science Introduction Website 
-            </Typography>
-            <img src="TUOS_PRIMARY_LOGO_REVERSED.png" alt="University Of Sheffield Logo" className={classes.logo}></img>
-          </Toolbar>
-      </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        >
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction == 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/> }
-            </IconButton>
-          </div>
-          <Divider />
-          <ListOfSections/>
-        </Drawer>
-        <main
-          className={clsx(classes.content, {
-            [classes.contentShift]: open,
-          })}
-        >
-        <div className={classes.drawerHeader} />
-        <Welcome/>
-       
-       
-        <Footer/>
-        </main>
- 
-        
+    <div >
+
+          {/* <ListOfSections/> */}
+          <MainApplication/>
+
+
     </div>
   );
 }
