@@ -31,7 +31,7 @@ import SendIcon from '@material-ui/icons/Send';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Accordion from '@material-ui/core/Accordion'
 import { AccordionSummary } from '@material-ui/core';
-import { withStyles, createStyles } from '@material-ui/styles';
+import { withStyles, createStyles } from '@material-ui/core/styles';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -54,7 +54,7 @@ function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
-const useStyles = makeStyles((theme)=> createStyles({
+const mystyle = theme => ({
   root: {
     display: 'flex',
     flexGrow: 1
@@ -124,7 +124,8 @@ const useStyles = makeStyles((theme)=> createStyles({
   nested: {
     paddingLeft:  theme.spacing(4)
   },
-}));
+});
+console.log(mystyle)
 
 const linkData = [
     {
@@ -203,7 +204,7 @@ class MainApplication extends Component {
       return (
         <div className={classes.root}>
         <Router>
-          <div style={{  }}>
+          <div>
           <CssBaseline />
         <AppBar
           position="fixed"
@@ -299,4 +300,4 @@ class MainApplication extends Component {
   MainApplication.propTypes = {
     classes: PropTypes.object.isRequired
   };
-export default withStyles(useStyles)(MainApplication);
+export default withStyles(mystyle, {withTheme: true})(MainApplication);

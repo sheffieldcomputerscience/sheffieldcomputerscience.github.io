@@ -32,6 +32,8 @@ import Accordion from '@material-ui/core/Accordion'
 import { AccordionSummary } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
+import { ThemeProvider } from '@material-ui/core/styles';
+
 import ReactDOM from "react-dom";
 import { NavLink } from 'react-router-dom';
 import {
@@ -46,19 +48,88 @@ import ListOfSections from "./ListOfSections";
 import Welcome from "./Welcome";
 import Footer from './Footer';
 import MainApplication from './MainApplication'
+const drawerWidth = 240;
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexGrow: 1
+  },
+  appBar: {
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    backgroundColor: "#272F40"
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(['margin', 'width'], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  logo: {
+    maxWidth: 160,
+    marginLeft: "auto",
+    marginTop: 5,
+    marginBottom: 5
+  },
+  hide: {
+    display: 'none',
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  drawerHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  },
+  list_root: {
+    width:'100%',
+    maxWidth: 360,
+  },
+  nested: {
+    paddingLeft:  theme.spacing(4)
+  },
+}));
 
 function App() {
-
-
-
   return (
     <div >
-
           {/* <ListOfSections/> */}
           <MainApplication/>
-
-
     </div>
   );
 }
