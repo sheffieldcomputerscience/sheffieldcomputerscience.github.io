@@ -10,6 +10,7 @@ import Radio from '@material-ui/core/Radio';
 import Paper from '@material-ui/core/Paper';
 import { Link } from "@material-ui/core";
 import Typography from '@material-ui/core/Typography';
+
 const welcome_people = [
     {
         id: "emma",
@@ -62,9 +63,9 @@ class Welcome extends Component {
   render() {
     return (
       <div style={{  }}>
-        <Typography  style={{ paddingLeft: "20%", paddingRight: "20%", textAlign:"center" }} paragraph>
+        <Typography  style={{ paddingLeft: "20%", paddingRight: "20%", textAlign:"center" }} variant="h5" paragraph>
         Welcome to your first year of computer science!
-        This website is meant to be a way to  easily find important information about how to navigate your First Year. <br/>
+        This website is meant to be a way to  easily find important information about how to navigate your First Year. 
         Use the sections on the left to find material, or the search-bar on the top right if you can't find what you're
         looking for.
         </Typography>
@@ -85,7 +86,9 @@ class Welcome extends Component {
                         </Typography>
                       <img src={value.fileName} alt="University Of Sheffield Logo" style={{borderRadius:"100%"}} ></img>
                       <Typography style={{textAlign:"center"}} paragraph>
-                            {value.welcomeMessage}
+                      {value.welcomeMessage.split('\n').map(i => {
+                                return <p>{i}</p>
+                            })}
                         </Typography>
                     </Paper>
                     </Grid>
@@ -125,8 +128,10 @@ class Welcome extends Component {
                       <br/>
                       <Link href={value.link}> Link to website</Link>
                       <br/>
-                      <Typography style={{textAlign:"center"}} paragraph>
-                            {value.welcomeMessage}
+                      <Typography style={{textAlign:"center", whiteSpace: "pre-wrap"}} paragraph>
+                            {value.welcomeMessage.split('\n').map(i => {
+                                return <p>{i}</p>
+                            })}
                         </Typography>
                     </Paper>
                     </Grid>

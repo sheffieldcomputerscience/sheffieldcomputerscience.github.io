@@ -22,9 +22,8 @@ const welcome_people = [
           id: "guy",
           nameHeader: "Guy Brown",
           fileName: "Guy-Brown.jpg",
-          role: "Lecturer Role",
-          welcomeMessage: "Lorem Ipsum Welcome Message"
-      },
+          role: "Head of Department",
+          welcomeMessage: "Welcome to the Department of Computer Science at the University of Sheffield! My name is Professor Guy Brown and I am the Head of Department. I’m delighted that you have chosen to join us at Sheffield and I look forward to meeting you soon.\nThe coming year will be an unusual one for all of us, as we teach and learn within the constraints created by the coronavirus pandemic. However, I am very confident that we will continue to deliver an excellent student experience, and that our reputation as a friendly and welcoming Department will continue to shine through.\nOver the next few weeks some of our teaching and support staff will be emailing you to introduce themselves and to suggest some helpful resources that will help prepare you for your arrival in Sheffield and for the start of your course.\nYou will also receive emails over the coming weeks from the University that will explain wider aspects of University life. Emails from the Department will focus on preparing you for life as a Computer Science student specifically.\nBest regards,\nProfessor Guy Brown\nHead of Department\n"      },
       {
           id: "jon",
           nameHeader: "Jon Barker",
@@ -58,36 +57,15 @@ const welcome_societies = [
 
   ];
 
-class General extends Component {
+class Welcome extends Component {
 
   render() {
     return (
       <div style={{  }}>
+
         <Typography style={{textAlign:"center"}} variant="h2" paragraph>
-            Important Links
+            Undergraduates
         </Typography>
-        <Grid container  spacing={2}>
-            <Grid item xs={12}>
-                <Grid container justify="center" spacing={2}>
-                {welcome_people.map((value) => (
-                    <Grid key={value.id} item>
-                    <Paper style={{textAlign:"center", paddingLeft:"2%", paddingRight:"2%", paddingBottom:"2%", paddingTop:"2%"}}>
-                        <Typography style={{textAlign:"center"}} variant="h5" paragraph>
-                            {value.nameHeader}
-                        </Typography>
-                        <Typography style={{textAlign:"center"}} variant="h6" paragraph>
-                            {value.role}
-                        </Typography>
-                      <img src={value.fileName} alt="University Of Sheffield Logo" style={{borderRadius:"100%"}} ></img>
-                      <Typography style={{textAlign:"center"}} paragraph>
-                            {value.welcomeMessage}
-                        </Typography>
-                    </Paper>
-                    </Grid>
-                ))}
-                </Grid>
-            </Grid>
-        </Grid>
 
         <Typography style={{textAlign:"center", marginTop:"2%"}} paragraph>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
@@ -101,37 +79,9 @@ class General extends Component {
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
 
-        <Typography style={{textAlign:"center"}} variant="h2" paragraph>
-            Computing Societies Welcome
-        </Typography>
-        <Grid container  spacing={2}>
-            <Grid item xs={12}>
-                <Grid container justify="center" spacing={2}>
-                {welcome_societies.map((value) => (
-                    <Grid key={value} item>
-                    <Paper style={{textAlign:"center", paddingLeft:"2%", paddingRight:"2%", paddingBottom:"2%", paddingTop:"2%"}}>
-                        <Typography style={{textAlign:"center"}} variant="h6" paragraph>
-                            {value.nameHeader}
-                        </Typography>
-                        <Typography style={{textAlign:"center"}} variant="h6" paragraph>
-                            {value.role}
-                        </Typography>
-                      <img src={value.fileName} alt="University Of Sheffield Logo" width="100" height="100" style={{borderRadius:"100%"}} ></img>
-                      <br/>
-                      <Link href={value.link}> Link to website</Link>
-                      <br/>
-                      <Typography style={{textAlign:"center"}} paragraph>
-                            {value.welcomeMessage}
-                        </Typography>
-                    </Paper>
-                    </Grid>
-                ))}
-                </Grid>
-            </Grid>
-        </Grid>
       </div>
     );
   }
 }
 
-export default General;
+export default Welcome;

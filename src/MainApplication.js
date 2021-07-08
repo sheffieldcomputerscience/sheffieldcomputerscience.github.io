@@ -46,9 +46,13 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import ListOfSections from "./ListOfSections";
-import Welcome from "./Welcome";
+import Welcome from "./content/Welcome";
 import Footer from './Footer';
-import General from './General';
+import General from './content/General';
+import ComputingSkills from './content/ComputingSkills';
+import AcademicSkills from './content/AcademicSkills';
+import Undergraduates from './content/Undergraduates';
+import Postgraduates from './content/Postgraduates';
 const drawerWidth = 240;
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -132,20 +136,20 @@ const linkData = [
       id: "welcome_page",
       nameHeader: "Welcome Page",
       subMenu: [{ id: "staff_page", name: "Staff Welcome" }, { id: "society_page", name: "Societies Welcome" }],
-      link: "/welcome",
+      link: "/",
     },
     {
       id: "1",
       nameHeader: "General Computing Skills",
       subMenu: [{ id: "11", name: "Version Control" }, { id: "12", name: "Terminal Skills" }, 
       { id: "13", name: "Typing Skills" }],
-      link: "/computingskills",
+      link: "/computing_skills",
     },
     {
       id: "2",
       nameHeader: "Academic Skills",
       subMenu: [{ id: "21", name: "Group Projects" }, { id: "22", name: "Studying and Revision" }, { id: "23", name: "Help for Students" }],
-      link: '/skills',
+      link: '/academic_skills',
     },
     {
       id: "3",
@@ -259,7 +263,7 @@ class MainApplication extends Component {
                   >
                     <List component="div" disablePadding>
                       {each.subMenu.map(subData => (
-                        <ListItem button key={subData.id} component={NavLink} to='/dashboard' >
+                        <ListItem button key={subData.id} component={NavLink} to={each.link} >
                           <ListItemText primary={subData.name} />
                         </ListItem>
                         
@@ -278,17 +282,28 @@ class MainApplication extends Component {
           })}
         >
         <div className={classes.drawerHeader} />
-        <Switch>
-          <Route exact path="/welcome">
-            <Welcome/>
-          </Route>
-          <Route exact path='/general'>
+
+          <Switch>
+            <Route exact path="/">
+              <Welcome/>
+            </Route>
+            <Route exact path='/general'>
               <General/>
-          </Route>
+            </Route>
+            <Route exact path='/computing_skills'>
+              <ComputingSkills/>
+            </Route>
+            <Route exact path='/academic_skills'>
+              <AcademicSkills/>
+            </Route>
+            <Route exact path='/undergraduates'>
+              <Undergraduates/>
+            </Route>
+            <Route exact path='/postgraduates'>
+              <Postgraduates/>
+            </Route>
+          </Switch>
 
-
-        </Switch>
-        <Welcome/>
         <Footer/>
         </main>
         </Router>

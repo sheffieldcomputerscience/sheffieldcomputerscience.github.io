@@ -44,9 +44,6 @@ import {
   useParams,
   useRouteMatch
 } from "react-router-dom";
-import ListOfSections from "./ListOfSections";
-import Welcome from "./Welcome";
-import Footer from './Footer';
 import MainApplication from './MainApplication'
 const drawerWidth = 240;
 function ListItemLink(props) {
